@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="SHOP.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+  <title>ShopTok</title>
+</head>
+<body>
+  <header>
+    <div class="logo" style="display: inline-block; vertical-align: middle;">
+      <a href="index.html"><img src="SHOP.png" alt="ShopTok Logo" style="height: 50px;"></a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="cart.html"><img src="shopping-cart.png" alt="Cart" class="cart" onClick="trackEvent('Cart', 'Click')"></a>
+        </li>
+        <li><a href="message.html"><img src="chat.png" alt="Messages" class="chat" onClick="trackEvent('Messages', 'Click')"></a></li>
+        <li><button class="login"><a href="login.html" onClick="trackEvent('Login', 'Click')">Login</a></button></li>
+      </ul>
+    </nav>
+  </header>
+<main class="container mt-5">
+    <h1 class="text-center">Admin Panel</h1>
+    <section class="mt-4">
+        <h2>Manage Products</h2>
+        <button class="btn btn-primary mb-3" onClick="addProduct()">Add New Product</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="productTable">
+                
+            </tbody>
+        <form id="addProductForm" class="mb-4">
+            <div class="mb-3">
+                <label for="productId" class="form-label">Product ID</label>
+                <input type="text" id="productId" class="form-control" placeholder="Enter Product ID" required>
+            </div>
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" id="productName" class="form-control" placeholder="Enter Product Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="productPrice" class="form-label">Product Price</label>
+                <input type="number" id="productPrice" class="form-control" placeholder="Enter Product Price" required>
+            </div>
+            <div class="mb-3">
+                <label for="productStock" class="form-label">Product Stock</label>
+                <input type="number" id="productStock" class="form-control" placeholder="Enter Product Stock" required>
+            </div>
+            <button type="button" class="btn btn-success" onClick="submitProductForm()">Add Product</button>
+        </form>
+        <script>
+            function submitProductForm() {
+                const productId = document.getElementById('productId').value;
+                const productName = document.getElementById('productName').value;
+                const productPrice = document.getElementById('productPrice').value;
+                const productStock = document.getElementById('productStock').value;
+
+                if (productId && productName && productPrice && productStock) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${productId}</td>
+                        <td>${productName}</td>
+                        <td>${productPrice}</td>
+                        <td>${productStock}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onClick="deleteProduct(this)">Delete</button>
+                        </td>
+                    `;
+                    productTable.appendChild(row);
+
+                
+                    document.getElementById('addProductForm').reset();
+                } else {
+                    alert('All fields are required to add a product.');
+                }
+            }
+
+    
+        </script>
+            <script>
+                const productTable = document.getElementById('productTable');
+
+                function addProduct() {
+                    const productId = prompt('Enter Product ID:');
+                    const productName = prompt('Enter Product Name:');
+                    const productPrice = prompt('Enter Product Price:');
+                    const productStock = prompt('Enter Product Stock:');
+
+                    if (productId && productName && productPrice && productStock) {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${productId}</td>
+                            <td>${productName}</td>
+                            <td>${productPrice}</td>
+                            <td>${productStock}</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" onClick="deleteProduct(this)">Delete</button>
+                            </td>
+                        `;
+                        productTable.appendChild(row);
+                    } else {
+                        alert('All fields are required to add a product.');
+                    }
+                }
+
+                function deleteProduct(button) {
+                    const row = button.parentElement.parentElement;
+                    productTable.removeChild(row);
+                }
+            </script>
+        </table>
+    </section>
+    <section class="mt-4">
+        <h2>Manage Orders</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="orderTable">
+                
+            </tbody>
+        </table>
+    </section>
+    <section class="mt-4">
+        <h2>Manage Users</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">Product Image</label>
+                        <input type="file" id="productImage" class="form-control" accept="image/*" required>
+                    </div>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTable">
+                
+            </tbody>
+        </table>
+    </section>
+</main>
+<script>
+    function addProduct() {
+        alert('Add Product functionality to be implemented.');
+    }
+</script>
+<script src="database.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</main>

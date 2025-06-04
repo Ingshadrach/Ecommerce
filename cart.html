@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="SHOP.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Cart</title>
+</head>
+<body>
+    <header>
+    <div class="logo" style="display: inline-block; vertical-align: middle;">
+      <a href="index.html"><img src="SHOP.png" alt="ShopTok Logo" style="height: 50px;"></a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="cart.html"><img src="shopping-cart.png" alt="Cart" class="cart" onClick="trackEvent('Cart', 'Click')"></a>
+        </li>
+        <li><a href="message.html"><img src="chat.png" alt="Messages" class="chat" onClick="trackEvent('Messages', 'Click')"></a></li>
+        <li><button class="login"><a href="login.html" onClick="trackEvent('Login', 'Click')">Login</a></button></li>
+      </ul>
+    </nav>
+  </header>
+  
+    <div id="cart-items">
+        <div class="cart-item">
+            <img src="adi.jpeg" alt="Product 1" class="cart-image">
+            <p>le 150</p>
+            <button class="add-to-cart" data-price="150">ADD TO CART</button>
+        </div>
+        <div class="cart-item">
+            <img src="gucci.jpeg" alt="Product 2" class="cart-image">
+            <p>le 90</p>
+            <button class="add-to-cart" data-price="90">ADD TO CART</button>
+        </div>
+        <div class="cart-item">
+            <img src="joe.jpeg" alt="Product 3" class="cart-image">
+            <p>le 50</p>
+            <button class="add-to-cart" data-price="50">ADD TO CART</button>
+        </div>
+    </div>
+    <div id="cart-summary">
+        <p>Total Quantity: <span id="cart-quantity">0</span></p>
+        <p>Total Price: <span id="cart-total-price">0.00</span></p>
+        <a href="pay.html" class="pay-btn" onclick="trackEvent('Proceed to Payment', 'Click')">Proceed to Payment</a>
+    </div>
+    <script src="script.js"></script>
+
+    <footer>
+        <p>&copy; 2023 ShopTok. All rights reserved.</p>
+    </footer>
+</body>
+</html>

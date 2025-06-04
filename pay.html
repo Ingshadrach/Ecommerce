@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="SHOP.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Payment</title>
+</head>
+<body>
+    <header>
+        <div class="logo" style="display: inline-block; vertical-align: middle;">
+            <a href="index.html"><img src="SHOP.png" alt="ShopTok Logo" style="height: 50px;"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="cart.html"><img src="shopping-cart.png" alt="Cart" class="cart" onClick="trackEvent('Cart', 'Click')"></a></li>
+                <li><a href="message.html"><img src="chat.png" alt="Messages" class="chat" onClick="trackEvent('Messages', 'Click')"></a></li>
+                <li><button class="login"><a href="login.html" onClick="trackEvent('Login', 'Click')">Login</a></button></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Payment</h1>
+    <p>Proceed with your payment using the following options:</p>
+    <ul class="pay-method">
+        <li><a href="#"><img src="card.png" alt="Credit Card" class="Payment" width="50px" height="50px"></a></li>
+        <li><a href="#"><img src="afri.jpg" alt="African Payment" class="Payment" width="50px" height="50px"></a></li>
+        <li><a href="#"><img src="orange.jpg" alt="Local Payment" class="Payment" width="50px" height="50px"></a></li>
+    </ul>
+
+    <footer>
+        <p>&copy; 2023 ShopTok. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
